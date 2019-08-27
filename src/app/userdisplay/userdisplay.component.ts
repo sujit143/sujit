@@ -9,12 +9,14 @@ import { Router } from "@angular/router";
 })
 export class UserdisplayComponent implements OnInit {
 arr:User[]=[];
+loading:boolean=true;
   constructor(private _data:UserdataService,private _router:Router) { }
 
   ngOnInit() {
     this._data.getAllUsers().subscribe(
       (data:User[])=>{
         this.arr=data;
+        this.loading=false;
       }
     );
   }
@@ -28,6 +30,9 @@ arr:User[]=[];
   }
   onUserEdit(item:User){
     this._router.navigate(['/edituser',item.user_email]);
+  }
+  onUserEditReactive(item:User){
+    this._router.navigate(['/edituserreactive',item.user_email]);
   }
   onSideBarClick(value) {
     if (value != "") {
@@ -44,4 +49,5 @@ arr:User[]=[];
       );
     }
   }
+
 }

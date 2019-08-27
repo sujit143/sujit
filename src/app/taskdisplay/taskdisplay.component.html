@@ -2,9 +2,14 @@
     <div>
         <h1>search</h1>
  <div class="col-md-3">
-<input type="text" #f (keyup)="search(f.value)">
+<input type="text" #f (keyup)="search(f.value)" placeholder="serch here">
 </div>
       <div class="col-md-9">
+          <div *ngIf="loading" class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
   <table class="table" >
   <thead>
     <th>Id</th>
@@ -22,6 +27,8 @@
       <td>{{item.Status}}</td>
       <td><button class="btn btn-info" (click)="onTaskDelete(item)" >Delete</button>
       <button class="btn btn-info" (click)="onTaskEdit(item)"  >edit</button>
+      <button class="btn btn-info" (click)="onTaskEditReactive(item)"  >Edit Reactive</button>
+
       </td>
     </tr>
   </tbody>

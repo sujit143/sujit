@@ -9,12 +9,14 @@ import { Router } from "@angular/router";
 })
 export class TaskdisplayComponent implements OnInit {
 arr:Task[]=[];
+loading:boolean=true;
   constructor(private _data:TaskdataService,private _router:Router) { }
 
   ngOnInit() {
     this._data.getAllTask().subscribe(
       (data:Task[])=>{
         this.arr=data;
+        this.loading=false;
       }
     );
   }
@@ -43,5 +45,8 @@ arr:Task[]=[];
         function() {}
       );
     }
+ }
+ onTaskEditReactive(item:Task) {
+  this._router.navigate(['/editaskreactive',item.Id]);
  }
 }

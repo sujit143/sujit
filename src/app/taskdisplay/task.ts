@@ -5,3 +5,6 @@ export class Task {
     public Status: string
   ) {}
 }
+// export class TaskResolved{
+//   constructor(public data:any[],public errorMessage:string){}
+// }

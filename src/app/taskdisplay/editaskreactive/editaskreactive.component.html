@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Edit reactive Demo</h1>
+  <form [formGroup]="signup2" (ngSubmit)="onTaskEdit()">
+    <div class="form-group">
+      <label>Id</label>
+      <input formControlName="id" type="text" class="form-control" placeholder="Enter Id">
+    </div>
+    <div class="form-group">
+      <label>Title</label>
+      <input formControlName="title" type="text" class="form-control" placeholder="Enter Title ">
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <input formControlName="status" type="text" class="form-control" placeholder="Enter Status">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="form-control btn btn-primary">Save User</button>
+    </div>
+  </form>
+</div>
+
